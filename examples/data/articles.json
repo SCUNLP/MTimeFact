@@ -1,0 +1,193 @@
+{
+  "fixture": true,
+  "authorship": "hand_authored_fictional_example",
+  "notice": "人工编写的中文离线输入；不是网站原文、模型输出或正式合成数据。example.invalid 是不可访问的演示地址；piyao 仅用于选择中文HTML解析适配器。",
+  "articles": [
+    {
+      "slug": "01-membership",
+      "title": "虚构示例一：成员身份与协会总部",
+      "claim": "2024-06-15，林乔是星河协会的成员。",
+      "source_verdict": "True",
+      "entities": [
+        {
+          "id": "lin",
+          "label": "林乔",
+          "type": "person",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-lin"
+        },
+        {
+          "id": "chen",
+          "label": "陈墨",
+          "type": "person",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-chen"
+        },
+        {
+          "id": "org",
+          "label": "星河协会",
+          "type": "organization",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-org"
+        },
+        {
+          "id": "city",
+          "label": "澄湾市",
+          "type": "location",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-city"
+        }
+      ],
+      "facts": [
+        {
+          "head": "lin",
+          "relation": "member_of",
+          "tail": "org",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "time_precision": "day",
+          "temporal_kind": "state",
+          "polarity": "positive",
+          "evidence_quote": "2024-06-15，林乔是星河协会的成员。"
+        },
+        {
+          "head": "org",
+          "relation": "headquartered_in",
+          "tail": "city",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "time_precision": "day",
+          "temporal_kind": "state",
+          "polarity": "positive",
+          "evidence_quote": "2024-06-15，星河协会的总部位于澄湾市。"
+        },
+        {
+          "head": "chen",
+          "relation": "member_of",
+          "tail": "org",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "time_precision": "day",
+          "temporal_kind": "state",
+          "polarity": "negative",
+          "evidence_quote": "2024-06-15，陈墨不是星河协会的成员。"
+        }
+      ],
+      "published_at": "2024-06-16",
+      "retrieved_at": "2024-06-17T00:00:00Z",
+      "text": "本页为 MTimeFact 软件演示而人工编写，所有人物、机构、地点和事件均为虚构，不是实际新闻或事实核查报道。2024-06-15，林乔是星河协会的成员。2024-06-15，星河协会的总部位于澄湾市。2024-06-15，陈墨不是星河协会的成员。2024-06-15，林乔不是星河协会的创立者。2024-06-15，星河协会正常运作，并未解散。"
+    },
+    {
+      "slug": "02-summit",
+      "title": "虚构示例二：举办地点、日期与提案",
+      "claim": "2024-06-15，澄湾市举办了青禾峰会。",
+      "source_verdict": "True",
+      "entities": [
+        {
+          "id": "city",
+          "label": "澄湾市",
+          "type": "location",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-city"
+        },
+        {
+          "id": "summit",
+          "label": "青禾峰会",
+          "type": "event",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-summit"
+        },
+        {
+          "id": "proposal",
+          "label": "灯塔提案表决",
+          "type": "event",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-proposal"
+        },
+        {
+          "id": "day",
+          "label": "2024-06-15",
+          "type": "time",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-day"
+        }
+      ],
+      "facts": [
+        {
+          "head": "city",
+          "relation": "hosted",
+          "tail": "summit",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "time_precision": "day",
+          "temporal_kind": "event",
+          "polarity": "positive",
+          "evidence_quote": "2024-06-15，澄湾市举办了青禾峰会。"
+        },
+        {
+          "head": "summit",
+          "relation": "endorsed",
+          "tail": "proposal",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "time_precision": "day",
+          "temporal_kind": "event",
+          "polarity": "positive",
+          "evidence_quote": "2024-06-15，青禾峰会支持了灯塔提案表决。"
+        },
+        {
+          "head": "summit",
+          "relation": "occurred_during",
+          "tail": "day",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "time_precision": "day",
+          "temporal_kind": "event",
+          "polarity": "positive",
+          "evidence_quote": "2024-06-15，澄湾市举办了青禾峰会。"
+        }
+      ],
+      "published_at": "2024-06-16",
+      "retrieved_at": "2024-06-17T00:00:00Z",
+      "text": "本页为 MTimeFact 软件演示而人工编写，所有人物、机构、地点和事件均为虚构，不是实际新闻或事实核查报道。2024-06-15，澄湾市举办了青禾峰会。2024-06-15，青禾峰会支持了灯塔提案表决。青禾峰会仅在2024-06-15举办一次，2024-06-16未举办。这里的支持表示峰会正式通过支持表决的决议，不表示所有与会者都投了赞成票。"
+    },
+    {
+      "slug": "03-votes",
+      "title": "虚构示例三：纠正错误的票数",
+      "claim": "2024-06-15，灯塔提案表决获得了281票赞成。",
+      "source_verdict": "False",
+      "entities": [
+        {
+          "id": "proposal",
+          "label": "灯塔提案表决",
+          "type": "event",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-proposal"
+        },
+        {
+          "id": "votes",
+          "label": "218 票",
+          "type": "quantity",
+          "domain": "fictional-civic-example",
+          "disambiguation": "mtimefact-example-votes"
+        }
+      ],
+      "facts": [
+        {
+          "head": "proposal",
+          "relation": "has_value",
+          "tail": "votes",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "time_precision": "day",
+          "temporal_kind": "event",
+          "polarity": "positive",
+          "evidence_quote": "2024-06-15，灯塔提案表决获得的赞成票准确为218票，而不是281票。"
+        }
+      ],
+      "published_at": "2024-06-16",
+      "retrieved_at": "2024-06-17T00:00:00Z",
+      "text": "本页为 MTimeFact 软件演示而人工编写，所有人物、机构、地点和事件均为虚构，不是实际新闻或事实核查报道。待核查说法：2024-06-15，灯塔提案表决获得了281票赞成。核查结论：上述281票的说法为假。2024-06-15，灯塔提案表决获得的赞成票准确为218票，而不是281票。该数值指赞成票数，不是参会人数，也不是总投票数。"
+    }
+  ]
+}

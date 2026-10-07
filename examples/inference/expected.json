@@ -1,0 +1,21 @@
+{
+  "demo": true,
+  "fixture": true,
+  "notice": "手工编写的行为预期，用于验证执行链；不是模型性能结果或事实标签。",
+  "samples": {
+    "inference-001": {
+      "predicted_label": true,
+      "evidence_status": "supported",
+      "query_count": 2,
+      "document_counts": [1, 1],
+      "minimum_explanation_citations": 2
+    },
+    "inference-002": {
+      "predicted_label": null,
+      "evidence_status": "insufficient_evidence",
+      "query_count": 2,
+      "document_counts": [0, 0],
+      "minimum_explanation_citations": 0
+    }
+  }
+}

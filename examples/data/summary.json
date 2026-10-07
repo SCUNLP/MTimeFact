@@ -1,0 +1,27 @@
+{
+  "fixture": true,
+  "network_calls": 0,
+  "model_calls": 0,
+  "final_claims": 0,
+  "raw_articles": 3,
+  "nodes": 8,
+  "edges": 7,
+  "positive_plans": 8,
+  "negative_plans": 42,
+  "positive_plans_by_hop": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2
+  },
+  "negative_plans_by_strategy": {
+    "entity_hallucination": 8,
+    "chronological_distortion": 8,
+    "relational_corruption": 8,
+    "contextual_contradiction": 8,
+    "sentiment_inversion": 8,
+    "data_perturbation": 2
+  },
+  "negative_edit_illustrations": 6,
+  "notice": "中文虚构输入、离线抽取夹具和图路径/扰动方案；最终正负 claim 仍须 GPT-5 生成并独立审核。"
+}

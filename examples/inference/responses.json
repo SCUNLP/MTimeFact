@@ -1,0 +1,83 @@
+{
+  "inference-001": {
+    "queries": [
+      {
+        "queries": [
+          {"id": "q1", "text": "2022年6月1日 银杉展 策展人", "depends_on": []},
+          {"id": "q2", "text": "2022年6月1日 银杉展策展人 任职 研究所", "depends_on": ["q1"]}
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "status": "answered",
+        "answer": "2022年6月1日，银杉展的策展人为林澄。",
+        "citations": [{"document_id": "fictional-exhibition", "quote": "银杉展于2022年5月20日至6月30日举行，策展人为林澄。"}]
+      },
+      {"resolved": true, "search_query": "2022年6月1日 林澄 任职 海岚研究所", "reason": "前置查询确认策展人是林澄，将其姓名代入任职查询，并保留待核实机构及日期。"},
+      {
+        "status": "answered",
+        "answer": "林澄于2021年9月1日至2023年8月31日在海岚研究所任职，包含2022年6月1日。",
+        "citations": [{"document_id": "fictional-employment", "quote": "林澄于2021年9月1日至2023年8月31日担任海岚研究所研究员。"}]
+      }
+    ],
+    "explanation": [
+      {
+        "explanation": "虚构展览记录显示，银杉展于2022年5月20日至6月30日举行，策展人为林澄。虚构任职记录显示，林澄于2021年9月1日至2023年8月31日担任海岚研究所研究员。2022年6月1日同时落在展期和任职区间内，因此这两份示例证据支持该陈述。",
+        "stance": "supported",
+        "citations": [
+          {"query_id": "q1", "document_id": "fictional-exhibition", "quote": "银杉展于2022年5月20日至6月30日举行，策展人为林澄。"},
+          {"query_id": "q2", "document_id": "fictional-employment", "quote": "林澄于2021年9月1日至2023年8月31日担任海岚研究所研究员。"}
+        ],
+        "evidence_gaps": []
+      }
+    ],
+    "verdict": [
+      {"predicted_label": true, "reason": "两份已引用的示例记录完成策展人到任职机构的证据链，且目标日期位于两项事实的有效区间内。"}
+    ],
+    "search": [
+      {
+        "query": "2022年6月1日 银杉展 策展人",
+        "response": {
+          "documents": [{"id": "fictional-exhibition", "url": "https://example.invalid/silver-fir-exhibition", "title": "虚构示例：银杉展公告", "text": "以下为离线测试专用的虚构记录。银杉展于2022年5月20日至6月30日举行，策展人为林澄。", "timestamp": "2022-05-20", "rank": 1}],
+          "metadata": {"fixture": true, "notice": "手工编写的检索响应，不来自 Tavily。"}
+        }
+      },
+      {
+        "query": "2022年6月1日 林澄 任职 海岚研究所",
+        "response": {
+          "documents": [{"id": "fictional-employment", "url": "https://example.invalid/hailan-employment", "title": "虚构示例：海岚研究所任职记录", "text": "以下为离线测试专用的虚构记录。林澄于2021年9月1日至2023年8月31日担任海岚研究所研究员。", "timestamp": "2021-09-01", "rank": 1}],
+          "metadata": {"fixture": true, "notice": "手工编写的检索响应，不来自 Tavily。"}
+        }
+      }
+    ]
+  },
+  "inference-002": {
+    "queries": [
+      {
+        "queries": [
+          {"id": "q1", "text": "2023年9月10日 青溪论坛 主持人", "depends_on": []},
+          {"id": "q2", "text": "2023年9月10日 青溪论坛主持人 澄星图书馆 馆长", "depends_on": ["q1"]}
+        ]
+      }
+    ],
+    "retrieval": [],
+    "explanation": [
+      {
+        "explanation": "离线检索没有返回青溪论坛主持人的相关文档，因而无法确定应继续查询的人名，也无法核实该人是否在目标日期担任澄星图书馆馆长。缺少证据不能说明陈述为假，当前应保留判断。",
+        "stance": "insufficient_evidence",
+        "citations": [],
+        "evidence_gaps": ["未找到2023年9月10日青溪论坛主持人的证据。", "无法确定主持人身份，后续馆长任职关系未得到核实。"]
+      }
+    ],
+    "verdict": [
+      {"predicted_label": null, "reason": "检索为空且依赖查询无法继续，证据不足；不能把未知当作反驳。"}
+    ],
+    "search": [
+      {
+        "query": "2023年9月10日 青溪论坛 主持人",
+        "response": {"documents": [], "metadata": {"fixture": true, "notice": "手工编写的空检索响应，不来自 Tavily。"}}
+      }
+    ]
+  }
+}

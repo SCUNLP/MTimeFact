@@ -1,0 +1,51 @@
+{
+  "demo": true,
+  "seed": 42,
+  "requested_per_hop": 2,
+  "final_claims": 0,
+  "planned_by_hop": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2
+  },
+  "shortfalls": {
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+  },
+  "unique_attempted_paths": 8,
+  "rejected": 0,
+  "run": {
+    "python": "3.9.6",
+    "inputs": {
+      "/Users/yangxinwei/Desktop/MTimeFact/examples/data/graph.json": "f670fc72983a5b981202251862af1df53dbe067c67c0698d6db267c6ee7d7bf7"
+    },
+    "prompts": {
+      "data/positive.txt": "21110a1a0a85aa98570139c3d61f51a6e6f9c7e514e5a0bbb96b842e1e7adc0c",
+      "data/audit_claim.txt": "2fb9331c6bac7e13f16aade5694d201eee77cfd5b6c76c3317d668e05bc6fb57"
+    },
+    "model_config": {
+      "generator": {
+        "provider": "openai",
+        "model": "gpt-5",
+        "base_url": "https://api.openai.com/v1",
+        "max_output_tokens": 8192
+      },
+      "auditor": {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "max_output_tokens": 8192
+      },
+      "evaluator": {
+        "provider": "openai",
+        "model": "gpt-5",
+        "base_url": "https://api.openai.com/v1",
+        "max_output_tokens": 8192
+      }
+    },
+    "config_hash": "da2efa71f919bd77ae3d"
+  }
+}

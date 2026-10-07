@@ -1,0 +1,52 @@
+{
+  "input_records": 3,
+  "accepted_records": 3,
+  "time_robust_records": [],
+  "rejections": [],
+  "audits": [
+    {
+      "source_id": "raw_4694e9a2610ed5fe1cbf",
+      "audit": {
+        "accepted": true,
+        "confidence": 1.0,
+        "entity_accuracy": true,
+        "temporal_grounding": true,
+        "verdict_consistent": true,
+        "evidence_support": true,
+        "fixture": true,
+        "notice": "Hand-authored fixture, not an actual model audit."
+      },
+      "demo": true
+    },
+    {
+      "source_id": "raw_3c40bfbcbe530d704d0d",
+      "audit": {
+        "accepted": true,
+        "confidence": 1.0,
+        "entity_accuracy": true,
+        "temporal_grounding": true,
+        "verdict_consistent": true,
+        "evidence_support": true,
+        "fixture": true,
+        "notice": "Hand-authored fixture, not an actual model audit."
+      },
+      "demo": true
+    },
+    {
+      "source_id": "raw_cee223cd6bf42c6f1d25",
+      "audit": {
+        "accepted": true,
+        "confidence": 1.0,
+        "entity_accuracy": true,
+        "temporal_grounding": true,
+        "verdict_consistent": true,
+        "evidence_support": true,
+        "fixture": true,
+        "notice": "Hand-authored fixture, not an actual model audit."
+      },
+      "demo": true
+    }
+  ],
+  "wikipedia_errors": [],
+  "contradictions": []
+}

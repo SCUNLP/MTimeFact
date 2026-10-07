@@ -1,0 +1,29 @@
+{
+  "started_at": "2026-09-29T16:33:19.408246+00:00",
+  "sources": [
+    "piyao"
+  ],
+  "date_range": [
+    "2022-11-01",
+    "2025-12-31"
+  ],
+  "mode": "offline_html",
+  "limits": {
+    "max_pages": 3,
+    "max_articles": 3
+  },
+  "notes": [
+    "The original collection scripts and exact URL manifest were not released.",
+    "A bounded run does not cover the paper's entire corpus.",
+    "Claim/verdict fields are copied only from ClaimReview JSON-LD when present; audit all extracted articles."
+  ],
+  "finished_at": "2026-09-29T16:33:19.409591+00:00",
+  "counts": {
+    "page_attempts": 3,
+    "articles_written": 3,
+    "articles_piyao": 3
+  },
+  "failures": [],
+  "status": "success",
+  "output": "/Users/yangxinwei/Desktop/MTimeFact/examples/data/raw.jsonl"
+}

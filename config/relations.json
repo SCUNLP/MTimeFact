@@ -1,0 +1,32 @@
+{
+  "name": "mtimefact_24_relations_v1",
+  "status": "PROJECT SCHEMA — NOT the original paper's unpublished complete schema",
+  "paper_explicit_examples": ["is_barred_from", "endorsed", "subsequent_to"],
+  "description": "The paper states that it uses 24 standardized relations but names only examples. The remaining choices here are project decisions that support the described eight stitching strategies. They are not presented as the authors' schema.",
+  "relations": [
+    {"id": "is_barred_from", "description": "A person or organization is barred from an event or activity."},
+    {"id": "endorsed", "description": "An entity explicitly endorsed another entity."},
+    {"id": "subsequent_to", "description": "An event occurred after the referenced event, based on explicit temporal evidence."},
+    {"id": "member_of", "description": "An entity belonged to an organization or group."},
+    {"id": "held_office", "description": "A person held a specified office."},
+    {"id": "won", "description": "An entity won an event, election, award, or competition."},
+    {"id": "located_in", "description": "An entity or event was located in a place."},
+    {"id": "headquartered_in", "description": "An organization's headquarters was in a place."},
+    {"id": "hosted", "description": "An entity or place hosted an event."},
+    {"id": "voiced", "description": "A person voiced a specified character or role."},
+    {"id": "adapted_from", "description": "A work was adapted from another work or a historical event."},
+    {"id": "married_to", "description": "A person was married to another person."},
+    {"id": "relative_of", "description": "An explicit family relationship connected two people."},
+    {"id": "caused_by", "description": "An event was explicitly attributed to a cause; chronology alone is insufficient."},
+    {"id": "parallel_to", "description": "A source explicitly establishes a structural comparison; similarity alone is insufficient."},
+    {"id": "has_value", "description": "An entity or event had an explicitly measured, sourced value with units in the value node."},
+    {"id": "has_outcome", "description": "An event had an explicitly sourced outcome."},
+    {"id": "participated_in", "description": "An entity participated in an event or activity."},
+    {"id": "appointed_to", "description": "A person was appointed to an office or role."},
+    {"id": "elected_to", "description": "A person was elected to an office or body."},
+    {"id": "resigned_from", "description": "A person resigned from an office or organization."},
+    {"id": "occurred_during", "description": "An explicitly evidenced event occurrence falls within a shared strict ISO year/month/day time node. The occurrence itself must be dated; a dated discussion, endorsement, or mention of an event is insufficient. This schema permits temporal-anchor joins without inventing bridges from entity mentions."},
+    {"id": "founded", "description": "An entity founded an organization."},
+    {"id": "released", "description": "An entity released a work, product, or official publication."}
+  ]
+}

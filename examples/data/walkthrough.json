@@ -1,0 +1,564 @@
+{
+  "fixture": true,
+  "notice": "仅展示图路径和人工设计的字段修改，不含最终合成 claim；六类修改仍须 GPT-5 生成与独立审核。",
+  "entity_labels": {
+    "entity:0a98d1679a4336daa96c": "澄湾市",
+    "entity:112beb718cb610c5a9f0": "星河协会",
+    "entity:2b59366e1e5f5db95ec5": "青禾峰会",
+    "entity:568bff04b058140eb441": "林乔",
+    "entity:5bbf1e9e5a89a236d85a": "218 票",
+    "entity:c56a5f4bc9ae3464662a": "灯塔提案表决",
+    "entity:ebe82bb3be5848afec84": "陈墨",
+    "temporal:2024-06-15": "2024-06-15"
+  },
+  "positive_paths": [
+    {
+      "id": "positive_plan_94e15831809994117ea5",
+      "hop_count": 2,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "temporal_synchronization",
+      "walk_node_labels": [
+        "林乔",
+        "星河协会",
+        "陈墨"
+      ],
+      "facts": [
+        {
+          "head": "林乔",
+          "relation": "member_of",
+          "tail": "星河协会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "陈墨",
+          "relation": "member_of",
+          "tail": "星河协会",
+          "polarity": "negative",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "positive_plan_a108291e87c08f48e40b",
+      "hop_count": 2,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "institutional_affiliation",
+      "walk_node_labels": [
+        "星河协会",
+        "澄湾市",
+        "青禾峰会"
+      ],
+      "facts": [
+        {
+          "head": "星河协会",
+          "relation": "headquartered_in",
+          "tail": "澄湾市",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "澄湾市",
+          "relation": "hosted",
+          "tail": "青禾峰会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "positive_plan_9a31fb93fc28b9303cff",
+      "hop_count": 3,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "person_identity_fusion",
+      "walk_node_labels": [
+        "青禾峰会",
+        "澄湾市",
+        "星河协会",
+        "陈墨"
+      ],
+      "facts": [
+        {
+          "head": "澄湾市",
+          "relation": "hosted",
+          "tail": "青禾峰会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "星河协会",
+          "relation": "headquartered_in",
+          "tail": "澄湾市",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "陈墨",
+          "relation": "member_of",
+          "tail": "星河协会",
+          "polarity": "negative",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "positive_plan_45b454e6b0eb615a3225",
+      "hop_count": 3,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "temporal_synchronization",
+      "walk_node_labels": [
+        "灯塔提案表决",
+        "青禾峰会",
+        "澄湾市",
+        "星河协会"
+      ],
+      "facts": [
+        {
+          "head": "青禾峰会",
+          "relation": "endorsed",
+          "tail": "灯塔提案表决",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "澄湾市",
+          "relation": "hosted",
+          "tail": "青禾峰会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "星河协会",
+          "relation": "headquartered_in",
+          "tail": "澄湾市",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "positive_plan_374efb78f57ac4ccaaef",
+      "hop_count": 4,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "person_identity_fusion",
+      "walk_node_labels": [
+        "灯塔提案表决",
+        "青禾峰会",
+        "澄湾市",
+        "星河协会",
+        "陈墨"
+      ],
+      "facts": [
+        {
+          "head": "青禾峰会",
+          "relation": "endorsed",
+          "tail": "灯塔提案表决",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "澄湾市",
+          "relation": "hosted",
+          "tail": "青禾峰会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "星河协会",
+          "relation": "headquartered_in",
+          "tail": "澄湾市",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "陈墨",
+          "relation": "member_of",
+          "tail": "星河协会",
+          "polarity": "negative",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "positive_plan_42803b2c30f57459453b",
+      "hop_count": 4,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "geospatial_coincidence",
+      "walk_node_labels": [
+        "2024-06-15",
+        "青禾峰会",
+        "澄湾市",
+        "星河协会",
+        "陈墨"
+      ],
+      "facts": [
+        {
+          "head": "青禾峰会",
+          "relation": "occurred_during",
+          "tail": "2024-06-15",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "澄湾市",
+          "relation": "hosted",
+          "tail": "青禾峰会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "星河协会",
+          "relation": "headquartered_in",
+          "tail": "澄湾市",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "陈墨",
+          "relation": "member_of",
+          "tail": "星河协会",
+          "polarity": "negative",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "positive_plan_e2046f72f2f388504adb",
+      "hop_count": 5,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "temporal_synchronization",
+      "walk_node_labels": [
+        "林乔",
+        "星河协会",
+        "澄湾市",
+        "青禾峰会",
+        "灯塔提案表决",
+        "218 票"
+      ],
+      "facts": [
+        {
+          "head": "林乔",
+          "relation": "member_of",
+          "tail": "星河协会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "星河协会",
+          "relation": "headquartered_in",
+          "tail": "澄湾市",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "澄湾市",
+          "relation": "hosted",
+          "tail": "青禾峰会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "青禾峰会",
+          "relation": "endorsed",
+          "tail": "灯塔提案表决",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "灯塔提案表决",
+          "relation": "has_value",
+          "tail": "218 票",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_cee223cd6bf42c6f1d25"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "positive_plan_c8eea3fee4744cb9d8de",
+      "hop_count": 5,
+      "claim": null,
+      "status": "draft_only_requires_gpt5",
+      "strategy": "geospatial_coincidence",
+      "walk_node_labels": [
+        "陈墨",
+        "星河协会",
+        "澄湾市",
+        "青禾峰会",
+        "灯塔提案表决",
+        "218 票"
+      ],
+      "facts": [
+        {
+          "head": "陈墨",
+          "relation": "member_of",
+          "tail": "星河协会",
+          "polarity": "negative",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "星河协会",
+          "relation": "headquartered_in",
+          "tail": "澄湾市",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_4694e9a2610ed5fe1cbf"
+          ]
+        },
+        {
+          "head": "澄湾市",
+          "relation": "hosted",
+          "tail": "青禾峰会",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "青禾峰会",
+          "relation": "endorsed",
+          "tail": "灯塔提案表决",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_3c40bfbcbe530d704d0d"
+          ]
+        },
+        {
+          "head": "灯塔提案表决",
+          "relation": "has_value",
+          "tail": "218 票",
+          "polarity": "positive",
+          "start": "2024-06-15",
+          "end": "2024-06-15",
+          "source_ids": [
+            "raw_cee223cd6bf42c6f1d25"
+          ]
+        }
+      ]
+    }
+  ],
+  "negative_edit_illustrations": [
+    {
+      "strategy": "entity_hallucination",
+      "name_zh": "实体替换",
+      "parent_id": "positive_plan_e2046f72f2f388504adb",
+      "status": "hand_authored_edit_illustration_requires_gpt5_and_audit",
+      "claim": null,
+      "target_label": false,
+      "edit": {
+        "edge_id": "edge:2825a74ad2f9dceb610c",
+        "field": "head",
+        "before": "entity:568bff04b058140eb441",
+        "after": "entity:ebe82bb3be5848afec84"
+      },
+      "contradicting_source": {
+        "source_id": "raw_4694e9a2610ed5fe1cbf",
+        "quote": "2024-06-15，陈墨不是星河协会的成员。"
+      }
+    },
+    {
+      "strategy": "chronological_distortion",
+      "name_zh": "时间扭曲",
+      "parent_id": "positive_plan_e2046f72f2f388504adb",
+      "status": "hand_authored_edit_illustration_requires_gpt5_and_audit",
+      "claim": null,
+      "target_label": false,
+      "edit": {
+        "edge_id": "edge:8659f7482d251dd97d36",
+        "field": "time",
+        "before": {
+          "start": "2024-06-15",
+          "end": "2024-06-15"
+        },
+        "after": {
+          "start": "2024-06-16",
+          "end": "2024-06-16"
+        }
+      },
+      "contradicting_source": {
+        "source_id": "raw_3c40bfbcbe530d704d0d",
+        "quote": "青禾峰会仅在2024-06-15举办一次，2024-06-16未举办。"
+      }
+    },
+    {
+      "strategy": "relational_corruption",
+      "name_zh": "关系破坏",
+      "parent_id": "positive_plan_e2046f72f2f388504adb",
+      "status": "hand_authored_edit_illustration_requires_gpt5_and_audit",
+      "claim": null,
+      "target_label": false,
+      "edit": {
+        "edge_id": "edge:2825a74ad2f9dceb610c",
+        "field": "relation",
+        "before": "member_of",
+        "after": "founded"
+      },
+      "contradicting_source": {
+        "source_id": "raw_4694e9a2610ed5fe1cbf",
+        "quote": "2024-06-15，林乔不是星河协会的创立者。"
+      }
+    },
+    {
+      "strategy": "contextual_contradiction",
+      "name_zh": "语境矛盾",
+      "parent_id": "positive_plan_e2046f72f2f388504adb",
+      "status": "hand_authored_edit_illustration_requires_gpt5_and_audit",
+      "claim": null,
+      "target_label": false,
+      "edit": {
+        "edge_id": "edge:2825a74ad2f9dceb610c",
+        "field": "premise",
+        "before": "",
+        "after": "星河协会已于2024-06-15解散"
+      },
+      "contradicting_source": {
+        "source_id": "raw_4694e9a2610ed5fe1cbf",
+        "quote": "2024-06-15，星河协会正常运作，并未解散。"
+      }
+    },
+    {
+      "strategy": "data_perturbation",
+      "name_zh": "数值扰动",
+      "parent_id": "positive_plan_e2046f72f2f388504adb",
+      "status": "hand_authored_edit_illustration_requires_gpt5_and_audit",
+      "claim": null,
+      "target_label": false,
+      "edit": {
+        "edge_id": "edge:11f4b03cd2690274e454",
+        "field": "value",
+        "before": "218 票",
+        "after": "281 票"
+      },
+      "contradicting_source": {
+        "source_id": "raw_cee223cd6bf42c6f1d25",
+        "quote": "2024-06-15，灯塔提案表决获得的赞成票准确为218票，而不是281票。"
+      }
+    },
+    {
+      "strategy": "sentiment_inversion",
+      "name_zh": "事实极性翻转",
+      "parent_id": "positive_plan_e2046f72f2f388504adb",
+      "status": "hand_authored_edit_illustration_requires_gpt5_and_audit",
+      "claim": null,
+      "target_label": false,
+      "edit": {
+        "edge_id": "edge:2825a74ad2f9dceb610c",
+        "field": "polarity",
+        "before": "positive",
+        "after": "negative"
+      },
+      "contradicting_source": {
+        "source_id": "raw_4694e9a2610ed5fe1cbf",
+        "quote": "2024-06-15，林乔是星河协会的成员。"
+      }
+    }
+  ]
+}

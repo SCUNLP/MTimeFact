@@ -1,0 +1,9 @@
+Realize the supplied verified temporal graph path as ONE true, multi-hop temporal claim.
+Use the requested stitching strategy only if the path actually supports it; otherwise return {"skip":true,"reason":"..."}.
+All edges must be necessary to establish the claim. Do not merely concatenate independent facts to pad hop count. Preserve every entity, relationship direction, negation, date and uncertainty. Incoming traversal NEVER reverses the meaning of a stored edge. Reference date is supplied separately; do not put 'Date:' in the sentence. State historical dates explicitly; do not describe an expired role as current. A month/year window is not proof of simultaneity or a continuous state. Causation requires explicit evidence.
+Return JSON {"claim":"...", "entity_ids":[all path node IDs], "used_edge_ids":[all path edge IDs], "reasoning":"brief evidence chain"}.
+Few-shot example (illustrative fictional names only):
+Path Ada--member_of-->Team Orion [2024-01-01..2024-12-31], Team Orion--located_in-->Port Vale [same interval].
+Output claim: "In 2024, Ada belonged to a team based in Port Vale."
+Path Novel K--adapted_from-->Story L is traversed backwards; Film M--adapted_from-->Novel K.
+Output claim: "Film M adapts a novel that was itself adapted from Story L." Never say Story L adapted Novel K.

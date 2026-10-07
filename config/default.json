@@ -1,0 +1,59 @@
+{
+  "seed": 42,
+  "llm": {
+    "generator": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "base_url": "https://api.openai.com/v1",
+      "api_key_env": "OPENAI_API_KEY",
+      "max_output_tokens": 8192
+    },
+    "auditor": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "api_key_env": "GEMINI_API_KEY",
+      "max_output_tokens": 8192
+    },
+    "reasoner": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "base_url": "https://api.openai.com/v1",
+      "api_key_env": "OPENAI_API_KEY",
+      "max_output_tokens": 8192
+    },
+    "evaluator": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "base_url": "https://api.openai.com/v1",
+      "api_key_env": "OPENAI_API_KEY",
+      "max_output_tokens": 8192
+    }
+  },
+  "http": {
+    "timeout": 120,
+    "retries": 3
+  },
+  "graph": {
+    "audit_min_confidence": 0.9
+  },
+  "synthesis": {
+    "audit_min_confidence": 0.9,
+    "max_attempts_per_hop": 1000,
+    "anchor_degree_power": 1.0
+  },
+  "inference": {
+    "max_queries": 8
+  },
+  "retrieval": {
+    "provider": "tavily",
+    "base_url": "https://api.tavily.com",
+    "api_key_env": "TAVILY_API_KEY",
+    "search_depth": "advanced",
+    "topic": "general",
+    "max_results": 5,
+    "max_document_chars": 6000,
+    "timeout": 60,
+    "retries": 2
+  }
+}

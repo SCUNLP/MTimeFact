@@ -1,0 +1,592 @@
+{
+  "notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。",
+  "k": 5,
+  "cases": [
+    {
+      "id": "eval-2",
+      "description": "完整轨迹：查询满分；重复、过期、无关及缺时间的检索项不得分；通过解释门控；最终判定正确。",
+      "gold": {
+        "id": "eval-2",
+        "fixture": true,
+        "demo": true,
+        "provenance": "hand_authored_fictional_evaluation_example",
+        "fixture_notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。",
+        "hop_count": 2,
+        "label": true,
+        "claim": "2024年6月，林辰担任所长的青岚研究所隶属于星河大学。",
+        "reference_date": "2024-06-30",
+        "time_window": {
+          "start": "2024-06-01",
+          "end": "2024-06-30"
+        },
+        "reasoning_graph": {
+          "nodes": [
+            {
+              "id": "n0",
+              "label": "林辰",
+              "type": "person"
+            },
+            {
+              "id": "n1",
+              "label": "青岚研究所",
+              "type": "organization"
+            },
+            {
+              "id": "n2",
+              "label": "星河大学",
+              "type": "organization"
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "head": "n0",
+              "relation": "director_of",
+              "tail": "n1",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-1"
+              ]
+            },
+            {
+              "id": "e2",
+              "head": "n1",
+              "relation": "part_of",
+              "tail": "n2",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-2"
+              ]
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "id": "gold-1",
+            "url": "https://example.invalid/gold-1",
+            "text": "2024年6月，林辰担任青岚研究所所长。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-2",
+            "url": "https://example.invalid/gold-2",
+            "text": "2024年6月，青岚研究所隶属于星河大学。",
+            "timestamp": "2024-06-15"
+          }
+        ]
+      },
+      "prediction": {
+        "id": "eval-2",
+        "fixture": true,
+        "demo": true,
+        "queries": [
+          {
+            "id": "q1",
+            "text": "2024年6月15日，林辰担任哪个研究所的所长？",
+            "depends_on": [],
+            "retrieved_documents": [
+              {
+                "id": "relevant",
+                "url": "https://example.invalid/relevant",
+                "text": "2024年6月，林辰担任青岚研究所所长。",
+                "timestamp": "2024-06-15"
+              },
+              {
+                "id": "relevant",
+                "url": "https://example.invalid/relevant",
+                "text": "2024年6月，林辰担任青岚研究所所长。",
+                "timestamp": "2024-06-15"
+              },
+              {
+                "id": "old",
+                "url": "https://example.invalid/old",
+                "text": "2023年1月，林辰担任青岚研究所所长。",
+                "timestamp": "2023-01-01"
+              },
+              {
+                "id": "unrelated",
+                "url": "https://example.invalid/unrelated",
+                "text": "2024年6月，云川市举行花卉展览。",
+                "timestamp": "2024-06-15"
+              },
+              {
+                "id": "undated",
+                "url": "https://example.invalid/undated",
+                "text": "林辰担任青岚研究所所长。",
+                "timestamp": null
+              }
+            ]
+          },
+          {
+            "id": "q2",
+            "text": "2024年6月15日，q1查到的青岚研究所隶属于哪所大学？",
+            "depends_on": [
+              "q1"
+            ],
+            "retrieved_documents": [
+              {
+                "id": "next",
+                "url": "https://example.invalid/next",
+                "text": "2024年6月，青岚研究所隶属于星河大学。",
+                "timestamp": "2024-06-15"
+              },
+              {
+                "id": "next-boundary",
+                "url": "https://example.invalid/next-boundary",
+                "text": "2024年6月，青岚研究所隶属于星河大学。",
+                "timestamp": "2024-06-30"
+              }
+            ]
+          }
+        ],
+        "explanation": "2024年6月，林辰担任青岚研究所所长，青岚研究所隶属于星河大学，因此该断言得到支持。",
+        "predicted_label": true,
+        "provenance": "hand_authored_fictional_system_trace",
+        "fixture_notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。"
+      },
+      "expected_stage_scores": {
+        "queries": 1,
+        "retrieval": 0.3,
+        "explanation": 0.9,
+        "verdict": 1
+      }
+    },
+    {
+      "id": "eval-3",
+      "description": "部分轨迹：绝对、相对、缺少时间各一条；只有一个检索命中；解释与预测标签矛盾触发门控；最终判定错误。",
+      "gold": {
+        "id": "eval-3",
+        "fixture": true,
+        "demo": true,
+        "provenance": "hand_authored_fictional_evaluation_example",
+        "fixture_notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。",
+        "hop_count": 3,
+        "label": false,
+        "claim": "2024年6月，林辰担任所长的青岚研究所隶属的星河大学位于海岚市。",
+        "reference_date": "2024-06-30",
+        "time_window": {
+          "start": "2024-06-01",
+          "end": "2024-06-30"
+        },
+        "reasoning_graph": {
+          "nodes": [
+            {
+              "id": "n0",
+              "label": "林辰",
+              "type": "person"
+            },
+            {
+              "id": "n1",
+              "label": "青岚研究所",
+              "type": "organization"
+            },
+            {
+              "id": "n2",
+              "label": "星河大学",
+              "type": "organization"
+            },
+            {
+              "id": "n3",
+              "label": "云川市",
+              "type": "location"
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "head": "n0",
+              "relation": "director_of",
+              "tail": "n1",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-1"
+              ]
+            },
+            {
+              "id": "e2",
+              "head": "n1",
+              "relation": "part_of",
+              "tail": "n2",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-2"
+              ]
+            },
+            {
+              "id": "e3",
+              "head": "n2",
+              "relation": "located_in",
+              "tail": "n3",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-3"
+              ]
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "id": "gold-1",
+            "url": "https://example.invalid/gold-1",
+            "text": "2024年6月，林辰担任青岚研究所所长。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-2",
+            "url": "https://example.invalid/gold-2",
+            "text": "2024年6月，青岚研究所隶属于星河大学。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-3",
+            "url": "https://example.invalid/gold-3",
+            "text": "2024年6月，星河大学仅位于云川市，不位于海岚市。",
+            "timestamp": "2024-06-15"
+          }
+        ]
+      },
+      "prediction": {
+        "id": "eval-3",
+        "fixture": true,
+        "demo": true,
+        "queries": [
+          {
+            "id": "q1",
+            "text": "2024年6月15日，林辰担任哪个研究所的所长？",
+            "depends_on": [],
+            "retrieved_documents": [
+              {
+                "id": "first",
+                "url": "https://example.invalid/first",
+                "text": "2024年6月，林辰担任青岚研究所所长。",
+                "timestamp": "2024-06-15"
+              }
+            ]
+          },
+          {
+            "id": "q2",
+            "text": "在q1提到日期所在的同一个月，该研究所隶属于哪所大学？",
+            "depends_on": [
+              "q1"
+            ],
+            "retrieved_documents": []
+          },
+          {
+            "id": "q3",
+            "text": "该大学位于哪个城市？",
+            "depends_on": [
+              "q2"
+            ],
+            "retrieved_documents": []
+          }
+        ],
+        "explanation": "星河大学位于云川市，不位于海岚市，因此该断言应被反驳。",
+        "predicted_label": true,
+        "provenance": "hand_authored_fictional_system_trace",
+        "fixture_notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。"
+      },
+      "expected_stage_scores": {
+        "queries": 0.65,
+        "retrieval": 0.06666666666666667,
+        "explanation": 0,
+        "verdict": 0
+      }
+    },
+    {
+      "id": "eval-4",
+      "description": "有预测记录但查询、解释为空且标签为null，各阶段计零，仍占分母。",
+      "gold": {
+        "id": "eval-4",
+        "fixture": true,
+        "demo": true,
+        "provenance": "hand_authored_fictional_evaluation_example",
+        "fixture_notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。",
+        "hop_count": 4,
+        "label": true,
+        "claim": "2024年6月，林辰任所长的青岚研究所所属大学所在的云川市，隶属于澄海省。",
+        "reference_date": "2024-06-30",
+        "time_window": {
+          "start": "2024-06-01",
+          "end": "2024-06-30"
+        },
+        "reasoning_graph": {
+          "nodes": [
+            {
+              "id": "n0",
+              "label": "林辰",
+              "type": "person"
+            },
+            {
+              "id": "n1",
+              "label": "青岚研究所",
+              "type": "organization"
+            },
+            {
+              "id": "n2",
+              "label": "星河大学",
+              "type": "organization"
+            },
+            {
+              "id": "n3",
+              "label": "云川市",
+              "type": "location"
+            },
+            {
+              "id": "n4",
+              "label": "澄海省",
+              "type": "location"
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "head": "n0",
+              "relation": "director_of",
+              "tail": "n1",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-1"
+              ]
+            },
+            {
+              "id": "e2",
+              "head": "n1",
+              "relation": "part_of",
+              "tail": "n2",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-2"
+              ]
+            },
+            {
+              "id": "e3",
+              "head": "n2",
+              "relation": "located_in",
+              "tail": "n3",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-3"
+              ]
+            },
+            {
+              "id": "e4",
+              "head": "n3",
+              "relation": "part_of",
+              "tail": "n4",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-4"
+              ]
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "id": "gold-1",
+            "url": "https://example.invalid/gold-1",
+            "text": "2024年6月，林辰担任青岚研究所所长。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-2",
+            "url": "https://example.invalid/gold-2",
+            "text": "2024年6月，青岚研究所隶属于星河大学。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-3",
+            "url": "https://example.invalid/gold-3",
+            "text": "2024年6月，星河大学仅位于云川市，不位于海岚市。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-4",
+            "url": "https://example.invalid/gold-4",
+            "text": "2024年6月，云川市隶属于澄海省。",
+            "timestamp": "2024-06-15"
+          }
+        ]
+      },
+      "prediction": {
+        "id": "eval-4",
+        "fixture": true,
+        "demo": true,
+        "queries": [],
+        "explanation": "",
+        "predicted_label": null,
+        "provenance": "hand_authored_fictional_system_trace",
+        "fixture_notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。"
+      },
+      "expected_stage_scores": {
+        "queries": 0,
+        "retrieval": 0,
+        "explanation": 0,
+        "verdict": 0
+      }
+    },
+    {
+      "id": "eval-5",
+      "description": "缺少整条预测记录，各阶段计零，仍占分母。",
+      "gold": {
+        "id": "eval-5",
+        "fixture": true,
+        "demo": true,
+        "provenance": "hand_authored_fictional_evaluation_example",
+        "fixture_notice": "人工编写的虚构评估示例，仅用于演示输入格式及评分公式；不是 GPT-5 合成结果或被测模型实测输出。",
+        "hop_count": 5,
+        "label": true,
+        "claim": "2024年6月，林辰任所长的青岚研究所所属大学位于云川市，云川市所属的澄海省属于青禾国。",
+        "reference_date": "2024-06-30",
+        "time_window": {
+          "start": "2024-06-01",
+          "end": "2024-06-30"
+        },
+        "reasoning_graph": {
+          "nodes": [
+            {
+              "id": "n0",
+              "label": "林辰",
+              "type": "person"
+            },
+            {
+              "id": "n1",
+              "label": "青岚研究所",
+              "type": "organization"
+            },
+            {
+              "id": "n2",
+              "label": "星河大学",
+              "type": "organization"
+            },
+            {
+              "id": "n3",
+              "label": "云川市",
+              "type": "location"
+            },
+            {
+              "id": "n4",
+              "label": "澄海省",
+              "type": "location"
+            },
+            {
+              "id": "n5",
+              "label": "青禾国",
+              "type": "location"
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "head": "n0",
+              "relation": "director_of",
+              "tail": "n1",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-1"
+              ]
+            },
+            {
+              "id": "e2",
+              "head": "n1",
+              "relation": "part_of",
+              "tail": "n2",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-2"
+              ]
+            },
+            {
+              "id": "e3",
+              "head": "n2",
+              "relation": "located_in",
+              "tail": "n3",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-3"
+              ]
+            },
+            {
+              "id": "e4",
+              "head": "n3",
+              "relation": "part_of",
+              "tail": "n4",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-4"
+              ]
+            },
+            {
+              "id": "e5",
+              "head": "n4",
+              "relation": "part_of",
+              "tail": "n5",
+              "start": "2024-06-01",
+              "end": "2024-06-30",
+              "evidence_ids": [
+                "gold-5"
+              ]
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "id": "gold-1",
+            "url": "https://example.invalid/gold-1",
+            "text": "2024年6月，林辰担任青岚研究所所长。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-2",
+            "url": "https://example.invalid/gold-2",
+            "text": "2024年6月，青岚研究所隶属于星河大学。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-3",
+            "url": "https://example.invalid/gold-3",
+            "text": "2024年6月，星河大学仅位于云川市，不位于海岚市。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-4",
+            "url": "https://example.invalid/gold-4",
+            "text": "2024年6月，云川市隶属于澄海省。",
+            "timestamp": "2024-06-15"
+          },
+          {
+            "id": "gold-5",
+            "url": "https://example.invalid/gold-5",
+            "text": "2024年6月，澄海省属于青禾国。",
+            "timestamp": "2024-06-15"
+          }
+        ]
+      },
+      "prediction": null,
+      "expected_stage_scores": {
+        "queries": 0,
+        "retrieval": 0,
+        "explanation": 0,
+        "verdict": 0
+      }
+    }
+  ],
+  "expected_overall_scores": {
+    "queries": 0.4125,
+    "retrieval": 0.09166666666666666,
+    "explanation": 0.225,
+    "verdict": 0.25
+  }
+}

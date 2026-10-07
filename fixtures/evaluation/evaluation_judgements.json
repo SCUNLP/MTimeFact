@@ -1,0 +1,119 @@
+{
+  "eval-2": {
+    "queries": [
+      {
+        "gold_sufficient": true,
+        "s_dc": 1,
+        "s_sr": 1,
+        "temporal_ratings": [
+          {
+            "query_id": "q1",
+            "kind": "absolute",
+            "correct": true,
+            "reason": "Hand-authored scoring expectation for this fixture."
+          },
+          {
+            "query_id": "q2",
+            "kind": "absolute",
+            "correct": true,
+            "reason": "Hand-authored scoring expectation for this fixture."
+          }
+        ],
+        "reason": "Hand-authored test judgement; no judge API was called."
+      }
+    ],
+    "retrieval": [
+      {
+        "relevance": [
+          {
+            "rank_id": "q0:r1",
+            "relevant": true
+          },
+          {
+            "rank_id": "q0:r3",
+            "relevant": true
+          },
+          {
+            "rank_id": "q0:r4",
+            "relevant": false
+          },
+          {
+            "rank_id": "q0:r5",
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "relevance": [
+          {
+            "rank_id": "q1:r1",
+            "relevant": true
+          },
+          {
+            "rank_id": "q1:r2",
+            "relevant": true
+          }
+        ]
+      }
+    ],
+    "explanation": [
+      {
+        "i_align": 1,
+        "reason": "Agreement."
+      },
+      {
+        "gold_sufficient": true,
+        "sufficiency": 1,
+        "factual_correctness": 0.9,
+        "temporal_plausibility": 0.8,
+        "reason": "Fixture quality."
+      }
+    ]
+  },
+  "eval-3": {
+    "queries": [
+      {
+        "gold_sufficient": true,
+        "s_dc": 1,
+        "s_sr": 0.5,
+        "temporal_ratings": [
+          {
+            "query_id": "q1",
+            "kind": "absolute",
+            "correct": true,
+            "reason": "Hand-authored scoring expectation for this fixture."
+          },
+          {
+            "query_id": "q2",
+            "kind": "relative",
+            "correct": true,
+            "reason": "Hand-authored scoring expectation for this fixture."
+          },
+          {
+            "query_id": "q3",
+            "kind": "missing",
+            "correct": false,
+            "reason": "Hand-authored scoring expectation for this fixture."
+          }
+        ],
+        "reason": "Hand-authored test judgement; no judge API was called."
+      }
+    ],
+    "retrieval": [
+      {
+        "relevance": [
+          {
+            "rank_id": "q0:r1",
+            "relevant": true
+          }
+        ]
+      }
+    ],
+    "explanation": [
+      {
+        "i_align": 0,
+        "reason": "Explanation refutes but predicted verdict supports."
+      }
+    ]
+  }
+}

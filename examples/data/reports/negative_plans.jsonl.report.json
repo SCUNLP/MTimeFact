@@ -1,0 +1,47 @@
+{
+  "demo": true,
+  "final_claims": 0,
+  "planned": 42,
+  "by_strategy": {
+    "entity_hallucination": 8,
+    "chronological_distortion": 8,
+    "relational_corruption": 8,
+    "contextual_contradiction": 8,
+    "sentiment_inversion": 8,
+    "data_perturbation": 2
+  },
+  "rejected": 0,
+  "note": "No assumed 1:1 ratio; inapplicable/unproven negatives are discarded.",
+  "run": {
+    "python": "3.9.6",
+    "inputs": {
+      "/Users/yangxinwei/Desktop/MTimeFact/examples/data/graph.json": "f670fc72983a5b981202251862af1df53dbe067c67c0698d6db267c6ee7d7bf7",
+      "/Users/yangxinwei/Desktop/MTimeFact/examples/data/positive_plans.jsonl": "bf9ae997cb46e5b9f69a42f8bada85066de8b090a2487573d900588f7d7ef121"
+    },
+    "prompts": {
+      "data/negative.txt": "e6ea5f7bd0ce4664826e30b71888baae74a0ecb7bd78610537c74f06b397dd9c",
+      "data/audit_claim.txt": "2fb9331c6bac7e13f16aade5694d201eee77cfd5b6c76c3317d668e05bc6fb57"
+    },
+    "model_config": {
+      "generator": {
+        "provider": "openai",
+        "model": "gpt-5",
+        "base_url": "https://api.openai.com/v1",
+        "max_output_tokens": 8192
+      },
+      "auditor": {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "max_output_tokens": 8192
+      },
+      "evaluator": {
+        "provider": "openai",
+        "model": "gpt-5",
+        "base_url": "https://api.openai.com/v1",
+        "max_output_tokens": 8192
+      }
+    },
+    "config_hash": "da2efa71f919bd77ae3d"
+  }
+}
